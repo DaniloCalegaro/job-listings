@@ -1,0 +1,11 @@
+header {
+  background: var(--veryDarkGrayishCyan);
+  background-image: url(/src/img/bg-header-desktop.svg);
+}
+
+@media (max-width: 420px) {
+  header {
+    background-image: url(/src/img/bg-header-mobile.svg);
+  }
+}
+/*# sourceMappingURL=header.css.map */

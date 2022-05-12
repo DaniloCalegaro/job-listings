@@ -1,0 +1,24 @@
+body {
+  font-family: 'League Spartan', sans-serif;
+  height: 100vh;
+
+  display: grid;
+  grid-template-rows: 9rem 1fr;
+
+  main {
+    background: var(--lightGrayishCyan);
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap : 1.2rem;
+  }
+
+  @media (max-width: 420px){
+    main{
+      padding: 1.5rem;
+    }
+  }
+
+}
+

@@ -1,129 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
 
+    <!-- Icon Page -->
     <link rel="icon" type="image/png" sizes="32x32" href="./src/img/book.svg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Links Styles -->
+    <link rel="stylesheet" href="./src/styles/resets/resets.css" />
+    <link rel="stylesheet" href="./src/styles/rules/colors.css" />
+    <link rel="stylesheet" href="./src/styles/rules/rules.css" />
+    <link rel="stylesheet" href="./src/styles/rules/button.css" />
+    <link rel="stylesheet" href="./src/styles/header/header.css" />
+    <link rel="stylesheet" href="./src/styles/container/container.css" />
 
     <title>Job Listings</title>
   </head>
   <body>
-    <!-- Item Start -->
-    Photosnap New! Featured Senior Frontend Developer 1d ago Full Time USA only
-    <!-- Role -->
-    Frontend
-    <!-- Level -->
-    Senior
-    <!-- Languages -->
-    HTML CSS JavaScript
-    <!-- Item End -->
+    <header></header>
 
-    <!-- Item Start -->
-    Manage New! Featured Fullstack Developer 1d ago Part Time Remote
-    <!-- Role -->
-    Fullstack
-    <!-- Level -->
-    Midweight
-    <!-- Languages -->
-    Python
-    <!-- Tools -->
-    React
-    <!-- Item End -->
+    <main>
+      <div class="container">
+        <div class="company">
+          <div class="image-company">
+            <img src="./src/img/photosnap.svg" alt="" />
+          </div>
 
-    <!-- Item Start -->
-    Account New! Junior Frontend Developer 2d ago Part Time USA only
-    <!-- Role -->
-    Frontend
-    <!-- Level -->
-    Junior
-    <!-- Languages -->
-    JavaScript
-    <!-- Tools -->
-    React Sass
-    <!-- Item End -->
-
-    <!-- Item Start -->
-    MyHome Junior Frontend Developer 5d ago Contract USA only
-    <!-- Role -->
-    Frontend
-    <!-- Level -->
-    Junior
-    <!-- Languages -->
-    CSS JavaScript
-    <!-- Item End -->
-
-    <!-- Item Start -->
-    Loop Studios Software Engineer 1w ago Full Time Worldwide
-    <!-- Role -->
-    Fullstack
-    <!-- Level -->
-    Midweight
-    <!-- Languages -->
-    JavaScript Ruby
-    <!-- Tools -->
-    Sass
-    <!-- Item End -->
-
-    <!-- Item Start -->
-    FaceIt Junior Backend Developer 2w ago Full Time UK only
-    <!-- Role -->
-    Backend
-    <!-- Level -->
-    Junior
-    <!-- Languages -->
-    Ruby
-    <!-- Tools -->
-    RoR
-    <!-- Item End -->
-
-    <!-- Item Start -->
-    Shortly Junior Developer 2w ago Full Time Worldwide
-    <!-- Role -->
-    Frontend
-    <!-- Level -->
-    Junior
-    <!-- Languages -->
-    HTML JavaScript
-    <!-- Tools -->
-    Sass
-    <!-- Item End -->
-
-    <!-- Item Start -->
-    Insure Junior Frontend Developer 2w ago Full Time USA only
-    <!-- Role -->
-    Frontend
-    <!-- Level -->
-    Junior
-    <!-- Languages -->
-    JavaScript
-    <!-- Tools -->
-    Vue Sass
-    <!-- Item End -->
-
-    <!-- Item Start -->
-    Eyecam Co. Full Stack Engineer 3w ago Full Time Worldwide
-    <!-- Role -->
-    Fullstack
-    <!-- Level -->
-    Midweight
-    <!-- Languages -->
-    JavaScript Python
-    <!-- Tools -->
-    Django
-    <!-- Item End -->
-
-    <!-- Item Start -->
-    The Air Filter Company Front-end Dev 1mo ago Part Time Worldwide
-    <!-- Role -->
-    Frontend
-    <!-- Level -->
-    Junior
-    <!-- Languages -->
-    JavaScript
-    <!-- Tools -->
-    React Sass
-    <!-- Item End -->
+          <div class="details-company">
+            <div class="company-name-feature">
+              <p>Photosnap</p>
+              <p class="button-new">New!</p>
+              <p class="button-featured">Featured</p>
+            </div>
+            <div class="job">
+              <p>Senior Frontend Developer</p>
+            </div>
+            <div class="details-job">
+              <p>1d ago</p>
+              <p>Full Time</p>
+              <p>USA only</p>
+            </div>
+          </div>
+        </div>
+        <div class="filters">
+          <a class="button" href="#">Frontend</a>
+          <a class="button" href="#">Senior</a>
+          <a class="button" href="#">HTML</a>
+          <a class="button" href="#">CSS</a>
+          <a class="button" href="#">JavaScript</a>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

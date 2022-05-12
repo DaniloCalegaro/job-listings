@@ -1,0 +1,119 @@
+.container {
+  background: var(--lightGrayishCyanTable);
+  width: 100%;
+  max-width: 70rem;
+  height: 9rem;
+  -webkit-box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.15);
+  border-radius: .5rem;
+  padding: 1.5rem;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container .company {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+}
+
+.container .company .image-company img {
+  width: 5.5rem;
+  height: auto;
+}
+
+.container .company .details-company {
+  height: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container .company .details-company .company-name-feature {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .8rem;
+  font-weight: 700;
+}
+
+.container .company .details-company .company-name-feature p:first-child {
+  color: var(--veryDarkGrayishCyan);
+  font-size: 0.9rem;
+}
+
+.container .company .details-company .job p {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--darkGraphite);
+}
+
+.container .company .details-company .details-job {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+}
+
+.container .company .details-company .details-job p {
+  font-weight: 500;
+  font-size: .8rem;
+  color: var(--gray);
+  position: relative;
+}
+
+.container .company .details-company .details-job p::after {
+  content: '';
+  position: absolute;
+  top: .15rem;
+  right: -1rem;
+  width: .2rem;
+  height: .2rem;
+  -webkit-clip-path: circle();
+          clip-path: circle();
+  background: var(--gray);
+}
+
+.container .filters {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: .5rem;
+}
+
+.container::after {
+  content: '';
+  background: var(--darkGrayishCyan);
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: .4rem;
+  height: 100%;
+  border-radius: .5rem 0 0 .5rem;
+}
+/*# sourceMappingURL=container.css.map */
