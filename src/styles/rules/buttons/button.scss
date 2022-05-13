@@ -1,4 +1,4 @@
-.button {
+.button-filters {
   background: var(--lightGrayishCyan);
   color: var(--veryDarkGrayishCyan);
   height: 2rem;
@@ -8,7 +8,6 @@
   font-size: 0.9rem;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
 }
 
 .button-featured{
@@ -21,7 +20,6 @@
   font-size: 0.8rem;
   display: flex;
   align-items: center;
-  justify-content: center;
   text-transform: uppercase;
 }
 
@@ -30,13 +28,10 @@
   color: var(--lightGrayishCyanTable);
   height: 1.1rem;
   padding: .2rem .5rem 0 .5rem;
-
-  //margin: auto;
   border-radius: 0.55rem;
   font-weight: 700;
   font-size: 0.8rem;
   display: flex;
   align-items: center;
-  justify-content: center;
   text-transform: uppercase;
 }

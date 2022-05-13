@@ -2,7 +2,6 @@
   background: var(--lightGrayishCyanTable);
   width: 100%;
   max-width: 70rem;
-  height: 9rem;
   -webkit-box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.15);
           box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.15);
   border-radius: .5rem;
@@ -29,6 +28,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-right: 2rem;
   gap: 1rem;
 }
 
@@ -51,7 +51,7 @@
           justify-content: space-between;
 }
 
-.container .company .details-company .company-name-feature {
+.container .company .details-company .company-name-feature ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -62,7 +62,7 @@
   font-weight: 700;
 }
 
-.container .company .details-company .company-name-feature p:first-child {
+.container .company .details-company .company-name-feature ul li:first-child p {
   color: var(--veryDarkGrayishCyan);
   font-size: 0.9rem;
 }
@@ -73,21 +73,21 @@
   color: var(--darkGraphite);
 }
 
-.container .company .details-company .details-job {
+.container .company .details-company .details-job ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 2rem;
 }
 
-.container .company .details-company .details-job p {
+.container .company .details-company .details-job ul li p {
   font-weight: 500;
   font-size: .8rem;
   color: var(--gray);
   position: relative;
 }
 
-.container .company .details-company .details-job p::after {
+.container .company .details-company .details-job ul li p::after {
   content: '';
   position: absolute;
   top: .15rem;
@@ -99,10 +99,12 @@
   background: var(--gray);
 }
 
-.container .filters {
+.container .filters ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   gap: .5rem;
 }
 
@@ -115,5 +117,54 @@
   width: .4rem;
   height: 100%;
   border-radius: .5rem 0 0 .5rem;
+}
+
+@media (max-width: 420px) {
+  .container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    position: relative;
+    padding-top: 2.5rem;
+  }
+  .container .company {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .container .company .image-company {
+    position: absolute;
+    top: -1.75rem;
+  }
+  .container .company .image-company img {
+    width: 3.5rem;
+  }
+  .container .filters {
+    position: relative;
+    margin-top: 2.5rem;
+  }
+  .container .filters ul {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .container .filters::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    top: -1.25rem;
+    border-top: solid 1px var(--gray);
+  }
+  .container:first-child {
+    margin-top: 2rem;
+  }
 }
 /*# sourceMappingURL=container.css.map */

@@ -1,4 +1,4 @@
-.button {
+.button-filters {
   background: var(--lightGrayishCyan);
   color: var(--veryDarkGrayishCyan);
   height: 2rem;
@@ -12,9 +12,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
 .button-featured {
@@ -31,9 +28,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   text-transform: uppercase;
 }
 
@@ -51,9 +45,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   text-transform: uppercase;
 }
 /*# sourceMappingURL=button.css.map */
