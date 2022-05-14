@@ -12,15 +12,16 @@ fetch(pathJson)
 /*----Create element----*/
 function newElement(name, className, type) {
   name = document.createElement(type)
-  name.className = className
+  if (className != '') {
+    name.className = className
+  }
   return name
 }
 
-/*----Insert Dynamic---- */
-const pageMain = document.querySelector('main')
-
 function receivedJsonData(jsonData) {
-  //console.log(jsonData[0])
+  /*----Insert Dynamic---- */
+  const pageMain = document.querySelector('main')
+
   jsonData.forEach(element => {
     divContainer = newElement('container', 'container', 'div')
 
@@ -101,6 +102,7 @@ function receivedJsonData(jsonData) {
 
     divCompany.appendChild(divDetailsCompany)
     //------
+
     //Filters
     divFilters = newElement('filters', 'filters', 'div')
     listFilters = newElement('.listFilters', '', 'ul')
