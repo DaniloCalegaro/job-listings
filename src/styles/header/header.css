@@ -1,11 +1,134 @@
 header {
   background: var(--veryDarkGrayishCyan);
   background-image: url(/src/img/bg-header-desktop.svg);
+  padding: 0 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+header .container-nav {
+  background: var(--lightGrayishCyanTable);
+  width: calc(100% - 8rem);
+  max-width: 70rem;
+  -webkit-box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.15);
+  border-radius: .5rem;
+  padding: 1rem;
+  position: absolute;
+  bottom: -2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+header .container-nav p {
+  color: var(--gray);
+  font-size: .9rem;
+}
+
+header .container-nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .5rem;
+  cursor: pointer;
+}
+
+header .container-nav ul li {
+  color: var(--darkGraphite);
+}
+
+header .container-nav ul li img {
+  width: 1.5rem;
+}
+
+header .container-nav .modal-filters {
+  background: var(--lightGrayishCyanTable);
+  -webkit-box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.15);
+  border-radius: .5rem;
+  padding: 1.5rem 2.5rem;
+  position: absolute;
+  top: 4.5rem;
+  right: 0;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+header .container-nav .modal-filters i {
+  position: absolute;
+  top: .6rem;
+  right: .6rem;
+}
+
+header .container-nav .modal-filters i img {
+  width: .85rem;
+}
+
+header .container-nav .modal-filters ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: .7rem;
+}
+
+header .container-nav .modal-filters ul li a {
+  color: var(--darkGraphite);
+}
+
+header .container-nav .modal-filters ul .list-break {
+  width: 100%;
+  border-top: solid 1px var(--gray);
+}
+
+header .container-nav .modal-filters::before {
+  content: '';
+  background-color: var(--lightGrayishCyanTable);
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  top: -.5rem;
+  right: 2rem;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  z-index: 11;
+}
+
+header .container-nav .modal-filters.active {
+  visibility: visible;
+  opacity: 1;
 }
 
 @media (max-width: 420px) {
   header {
     background-image: url(/src/img/bg-header-mobile.svg);
+  }
+  header .container-nav {
+    width: calc(100% - 3rem);
   }
 }
 /*# sourceMappingURL=header.css.map */

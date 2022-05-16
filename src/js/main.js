@@ -23,7 +23,7 @@ function receivedJsonData(jsonData) {
   const pageMain = document.querySelector('main')
 
   jsonData.forEach(element => {
-    divContainer = newElement('container', 'container', 'div')
+    divContainer = newElement('container', 'container', 'section')
 
     //Company
     divCompany = newElement('company', 'company', 'div')
@@ -138,3 +138,18 @@ function receivedJsonData(jsonData) {
     pageMain.appendChild(divContainer)
   })
 }
+
+/*---- EventListeners ---- */
+
+const filtersView = document.querySelector('#filters-view')
+const modalFilters = document.querySelector('#modal-filters')
+const closeModal = document.querySelector('#close-modal')
+//console.log(modalFilters.classList.contains('active'))
+
+filtersView.addEventListener('click', () => {
+  modalFilters.classList.toggle('active')
+})
+
+modalFilters.addEventListener('click', () => {
+  modalFilters.classList.toggle('active')
+})
