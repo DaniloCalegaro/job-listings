@@ -18,6 +18,10 @@ function newElement(name, className, type) {
   return name
 }
 
+/*----Arrays----*/
+let typeContracts = []
+let locations = []
+
 function receivedJsonData(jsonData) {
   /*----Insert Dynamic---- */
   const pageMain = document.querySelector('main')
@@ -136,10 +140,24 @@ function receivedJsonData(jsonData) {
     divContainer.appendChild(divCompany)
     divContainer.appendChild(divFilters)
     pageMain.appendChild(divContainer)
+
+    typeContracts.push(element.contract)
+    locations.push(element.location)
   })
 }
 
-/*---- EventListeners ---- */
+/*----Filters Modal Dinamics---- */
+
+// const listDinamicModalFilters = document.querySelector('#dinamic-modal-filters')
+// const rowTypeContract = newElement('rowTypeContract', '', 'li')
+// rowTypeContract.textContent = element.contract
+
+// listDinamicModalFilters.appendChild(rowTypeContract)
+
+console.log(typeContracts)
+console.log(locations)
+
+/*---- EventListeners Modal---- */
 
 const filtersView = document.querySelector('#filters-view')
 const modalFilters = document.querySelector('#modal-filters')
