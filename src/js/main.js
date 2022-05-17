@@ -21,6 +21,7 @@ function newElement(name, className, type) {
 /*----Arrays----*/
 let typeContracts = []
 let locations = []
+let filtersSelected = []
 
 function receivedJsonData(jsonData) {
   /*----Insert Dynamic---- */
@@ -146,13 +147,11 @@ function receivedJsonData(jsonData) {
     pageMain.appendChild(divContainer)
 
     // Add contracts and locations array
-    checkRepeatedItem(element.contract, typeContracts)
-      ? typeContracts.push(element.contract)
-      : 0
+    if (checkRepeatedItem(element.contract, typeContracts))
+      typeContracts.push(element.contract)
 
-    checkRepeatedItem(element.location, locations)
-      ? locations.push(element.location)
-      : 0
+    if (checkRepeatedItem(element.location, locations))
+      locations.push(element.location)
   })
 
   /*----Filters Modal Dinamics---- */
@@ -179,19 +178,49 @@ function receivedJsonData(jsonData) {
 /*---- EventListeners Modal---- */
 
 const filtersView = document.querySelector('#filters-view')
-const modalFilters = document.querySelector('#modal-filters')
-const closeModal = document.querySelector('#close-modal')
-//console.log(modalFilters.classList.contains('active'))
 
 filtersView.addEventListener('click', () => {
   modalFilters.classList.toggle('active')
 })
 
+const modalFilters = document.querySelector('#modal-filters')
 modalFilters.addEventListener('click', () => {
   modalFilters.classList.toggle('active')
 })
 
-//--- Auxiliary functions ---
+/*--- Add Button List Dinamic Filters Header ---*/
+const listDinamicModalFilters = document.querySelector('#dinamic-modal-filters')
+
+listDinamicModalFilters.addEventListener('click', e => {
+  //console.log(e.target.firstChild.textContent)
+  const listButtonsFiltersSelected = document.querySelector('#buttons-filters')
+  const rowFilterSelected = newElement('rowFilterSelected', '', 'li')
+  const filterSelected = newElement(
+    'filterSelected',
+    'button-header-filter',
+    'a'
+  )
+
+  const valueElementClick = e.target.firstChild.textContent
+
+  if (checkRepeatedItem(valueElementClick, filtersSelected)) {
+    filtersSelected.push(valueElementClick)
+    filterSelected.textContent = e.target.firstChild.textContent
+    rowFilterSelected.id = e.target.firstChild.textContent
+    rowFilterSelected.appendChild(filterSelected)
+    listButtonsFiltersSelected.appendChild(rowFilterSelected)
+  }
+})
+
+/*--- Remove Button List Dinamic Filters Header ---*/
+const listbuttonFilterHeader = document.querySelector('#buttons-filters')
+listbuttonFilterHeader.addEventListener('click', e => {
+  //console.log(e.target.firstChild.textContent)
+  console.log(e)
+  //listbuttonFilterHeader.removeChild(e.target.id)
+})
+
+/*--- Auxiliary functions ---*/
 
 const checkRepeatedItem = (element, array) =>
   array.indexOf(element) === -1 ? true : false
