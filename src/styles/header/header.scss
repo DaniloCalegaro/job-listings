@@ -13,18 +13,13 @@ header {
 
   .container-nav {
     background: var(--lightGrayishCyanTable);
-
     width: calc(100% - 8rem);
     max-width: 70rem;
-
     box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.15);
     border-radius: .5rem;
-
     padding: 1rem;
-
     position: absolute;
     bottom: -2rem;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -32,6 +27,12 @@ header {
     p {
       color: var(--gray);
       font-size: .9rem;
+    }
+
+    .list-filters-selected {
+      margin: 0 3rem;
+      display: flex;
+      flex-wrap: wrap;
     }
 
     ul {
@@ -50,22 +51,17 @@ header {
     
     .modal-filters {
       background: var(--lightGrayishCyanTable);
-  
       box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.15);
       border-radius: .5rem;
-  
       padding: 1.5rem 2.5rem;
-
       position: absolute;
       top: 4.5rem;
       right: 0;
       z-index: 10;
-      
       opacity: 0;
       visibility: hidden;
-
       transition: .2s;
-      
+
       i {
         position: absolute;
         top: .6rem;
@@ -81,10 +77,14 @@ header {
         gap: .7rem;
         
         li {
+          transition: .1s;
           a {
             color: var(--darkGraphite);
           }
+        }
 
+        li:hover {
+          transform: scale(1.1);
         }
 
         .list-break {
@@ -97,14 +97,12 @@ header {
     .modal-filters::before {
       content: '';
       background-color: var(--lightGrayishCyanTable);
-  
       position: absolute;
       width: 1rem;
       height: 1rem;
       top: -.5rem;
       right: 2rem;
       transform: rotate(45deg);
-  
       z-index: 11;
     }
 

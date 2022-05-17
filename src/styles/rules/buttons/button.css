@@ -47,4 +47,52 @@
           align-items: center;
   text-transform: uppercase;
 }
+
+.button-header-filter {
+  background: var(--lightGrayishCyan);
+  color: var(--veryDarkGrayishCyan);
+  height: 1.5rem;
+  padding-left: .5rem;
+  border-radius: .3rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.button-header-filter::after {
+  content: '';
+  background: var(--darkGrayishCyan);
+  background-image: url(/src/img/close.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: .8rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: .5rem;
+  border-radius: 0 .3rem .3rem 0;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.button-header-filter:hover::after {
+  background: var(--redClose);
+  background-image: url(/src/img/close.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: .8rem;
+}
 /*# sourceMappingURL=button.css.map */

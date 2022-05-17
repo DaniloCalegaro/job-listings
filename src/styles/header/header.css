@@ -40,6 +40,15 @@ header .container-nav p {
   font-size: .9rem;
 }
 
+header .container-nav .list-filters-selected {
+  margin: 0 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 header .container-nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -96,8 +105,18 @@ header .container-nav .modal-filters ul {
   gap: .7rem;
 }
 
+header .container-nav .modal-filters ul li {
+  -webkit-transition: .1s;
+  transition: .1s;
+}
+
 header .container-nav .modal-filters ul li a {
   color: var(--darkGraphite);
+}
+
+header .container-nav .modal-filters ul li:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 header .container-nav .modal-filters ul .list-break {
