@@ -107,7 +107,12 @@ function receivedJsonData(jsonData) {
     divCompany.appendChild(divDetailsCompany)
     //------
 
+    //Results Json
+    const spanResult = document.querySelector('#cont-result')
+    spanResult.textContent = jsonData.length
+
     //Filters
+
     divFilters = newElement('filters', 'filters', 'div')
     listFilters = newElement('.listFilters', '', 'ul')
 
@@ -136,26 +141,40 @@ function receivedJsonData(jsonData) {
 
     divFilters.appendChild(listFilters)
     //--------
-
     divContainer.appendChild(divCompany)
     divContainer.appendChild(divFilters)
     pageMain.appendChild(divContainer)
 
-    typeContracts.push(element.contract)
-    locations.push(element.location)
+    // Add contracts and locations array
+    checkRepeatedItem(element.contract, typeContracts)
+      ? typeContracts.push(element.contract)
+      : 0
+
+    checkRepeatedItem(element.location, locations)
+      ? locations.push(element.location)
+      : 0
+  })
+
+  /*----Filters Modal Dinamics---- */
+  const listDinamicModalFilters = document.querySelector(
+    '#dinamic-modal-filters'
+  )
+
+  typeContracts.forEach(e => {
+    const rowTypeContract = newElement('rowTypeContract', '', 'li')
+    rowTypeContract.textContent = e
+    listDinamicModalFilters.appendChild(rowTypeContract)
+  })
+
+  const rowDivider = newElement('rowDivider', 'list-break', 'li')
+  listDinamicModalFilters.appendChild(rowDivider)
+
+  locations.forEach(e => {
+    const rowLocation = newElement('rowLocation', '', 'li')
+    rowLocation.textContent = e
+    listDinamicModalFilters.appendChild(rowLocation)
   })
 }
-
-/*----Filters Modal Dinamics---- */
-
-// const listDinamicModalFilters = document.querySelector('#dinamic-modal-filters')
-// const rowTypeContract = newElement('rowTypeContract', '', 'li')
-// rowTypeContract.textContent = element.contract
-
-// listDinamicModalFilters.appendChild(rowTypeContract)
-
-console.log(typeContracts)
-console.log(locations)
 
 /*---- EventListeners Modal---- */
 
@@ -171,3 +190,8 @@ filtersView.addEventListener('click', () => {
 modalFilters.addEventListener('click', () => {
   modalFilters.classList.toggle('active')
 })
+
+//--- Auxiliary functions ---
+
+const checkRepeatedItem = (element, array) =>
+  array.indexOf(element) === -1 ? true : false
