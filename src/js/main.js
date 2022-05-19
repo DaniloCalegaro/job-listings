@@ -192,14 +192,13 @@ modalFilters.addEventListener('click', () => {
 const listDinamicModalFilters = document.querySelector('#dinamic-modal-filters')
 
 listDinamicModalFilters.addEventListener('click', e => {
-  //console.log(e.target.firstChild.textContent)
   const listButtonsFiltersSelected = document.querySelector('#buttons-filters')
-  const rowFilterSelected = newElement('rowFilterSelected', '', 'li')
-  const filterSelected = newElement(
-    'filterSelected',
+  const rowFilterSelected = newElement(
+    'rowFilterSelected',
     'button-header-filter',
-    'a'
+    'li'
   )
+  const filterSelected = newElement('filterSelected', '', 'a')
 
   const valueElementClick = e.target.firstChild.textContent
 
@@ -215,9 +214,12 @@ listDinamicModalFilters.addEventListener('click', e => {
 /*--- Remove Button List Dinamic Filters Header ---*/
 const listbuttonFilterHeader = document.querySelector('#buttons-filters')
 listbuttonFilterHeader.addEventListener('click', e => {
-  //console.log(e.target.firstChild.textContent)
-  console.log(e)
-  //listbuttonFilterHeader.removeChild(e.target.id)
+  const filterButton = document.getElementById(e.target.id)
+  const valueButtonFilter = e.target.textContent
+  if (filterButton != null) {
+    filtersSelected.splice(valueButtonFilter, 1)
+    document.getElementById(e.target.id).remove()
+  }
 })
 
 /*--- Auxiliary functions ---*/
