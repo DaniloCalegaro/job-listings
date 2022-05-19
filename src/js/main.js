@@ -8,7 +8,10 @@ function fetchJson() {
     .then(response => {
       return response.json()
     })
-    .then(jsondata => receivedJsonData(jsondata))
+    .then(jsondata => {
+      searchFiltersAvailable(jsondata)
+      mountPage(jsondata)
+    })
 }
 
 /*--- Fetch Filtering ---*/
@@ -18,8 +21,22 @@ function fetchJsonFiltering(filter) {
       return response.json()
     })
     .then(jsondata => {
-      const jsonFiltering = jsondata.filter(e => e.contract === filter)
-      console.log(jsonFiltering)
+      searchFiltersAvailable(jsondata)
+      const jsonFilteringConstract = jsondata.filter(
+        element => element.contract === filter
+      )
+      const jsonFilteringLocation = jsondata.filter(
+        element => element.location === filter
+      )
+      const jsonFilteringLanguage = jsondata.filter(
+        element => element.languages === filter
+      )
+
+      if (jsonFilteringConstract.length != 0)
+        console.log(jsonFilteringConstract)
+      if (jsonFilteringLocation.length != 0) console.log(jsonFilteringLocation)
+      if (jsonFilteringLanguage.length != 0) console.log(jsonFilteringLanguage)
+
       // jsonFiltering.forEach(element => {
       //   if (checkRepeatedItem(element, itensFiltersSelected))
       //     itensFiltersSelected.push(element.id)
@@ -27,16 +44,18 @@ function fetchJsonFiltering(filter) {
       //console.log(jsondata[1].contract)
     })
 }
-fetchJsonFiltering('Full Time')
+//fetchJsonFiltering('Full Time')
+//fetchJsonFiltering('USA Only')
 
 /*----Arrays----*/
 let typeContracts = []
 let locations = []
+let languages = []
 let filtersSelected = []
 
 const pageMain = document.querySelector('main')
 
-function receivedJsonData(jsonData) {
+function mountPage(jsonData) {
   /*----Insert Dynamic---- */
   jsonData.forEach(element => {
     divContainer = newElement('container', 'container', 'section')
@@ -156,13 +175,6 @@ function receivedJsonData(jsonData) {
     divContainer.appendChild(divCompany)
     divContainer.appendChild(divFilters)
     pageMain.appendChild(divContainer)
-
-    // Add contracts and locations array filters
-    if (!checkRepeatedItem(element.contract, typeContracts))
-      typeContracts.push(element.contract)
-
-    if (!checkRepeatedItem(element.location, locations))
-      locations.push(element.location)
   })
 
   /*----Filters Modal Dinamics---- */
@@ -183,6 +195,15 @@ function receivedJsonData(jsonData) {
     const rowLocation = newElement('rowLocation', '', 'li')
     rowLocation.textContent = e
     listDinamicModalFilters.appendChild(rowLocation)
+  })
+
+  const rowDivider2 = newElement('rowDivider', 'list-break', 'li')
+  listDinamicModalFilters.appendChild(rowDivider2)
+
+  languages.forEach(element => {
+    const rowLanguage = newElement('rowLanguage', '', 'li')
+    rowLanguage.textContent = element
+    listDinamicModalFilters.appendChild(rowLanguage)
   })
 }
 
@@ -220,6 +241,7 @@ listDinamicModalFilters.addEventListener('click', e => {
     rowFilterSelected.appendChild(filterSelected)
     listButtonsFiltersSelected.appendChild(rowFilterSelected)
   }
+  console.log(filtersSelected)
 })
 
 /*--- Remove Button List Dinamic Filters Header ---*/
@@ -230,6 +252,7 @@ listbuttonFilterHeader.addEventListener('click', e => {
   if (filterButton != null) {
     filtersSelected.splice(valueButtonFilter, 1)
     document.getElementById(e.target.id).remove()
+    console.log(filtersSelected)
   }
 })
 
@@ -243,10 +266,23 @@ function newElement(name, className, type) {
   return name
 }
 
+function searchFiltersAvailable(array) {
+  array.forEach(element => {
+    // Add contracts and locations array filters
+    if (!checkRepeatedItem(element.contract, typeContracts))
+      typeContracts.push(element.contract)
+    if (!checkRepeatedItem(element.location, locations))
+      locations.push(element.location)
+
+    element.languages.forEach(language => {
+      if (!checkRepeatedItem(language, languages)) languages.push(language)
+    })
+  })
+}
+
 const checkRepeatedItem = (element, array) => array.some(e => e === element)
 
 /*--- Initialize page ---*/
-
 window.onload = () => {
   fetchJson()
 }
