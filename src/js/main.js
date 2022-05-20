@@ -1,15 +1,10 @@
-const pathJson = './src/json/data.json'
+/*----Arrays----*/
+let languages = []
+let filtersSelected = []
+// let typeContracts = []
+// let locations = []
 
-function fetchJsonInicilize() {
-  fetch(pathJson)
-    .then(response => {
-      return response.json()
-    })
-    .then(jsondata => {
-      searchFiltersAvailable(jsondata)
-      mountPage(jsondata)
-    })
-}
+const pathJson = './src/json/data.json'
 
 /*--- Fetch Json and Filter ---*/
 function fetchJsonFiltering(arrayfilters) {
@@ -18,22 +13,20 @@ function fetchJsonFiltering(arrayfilters) {
       return response.json()
     })
     .then(jsondata => {
+      searchFiltersAvailable(jsondata)
+
       function insideArray(value) {
         const searchItens = arrayfilters.every(filter =>
           value.languages.some(language => language === filter)
         )
         return searchItens
       }
-      const jsonFilteringLanguage = jsondata.filter(insideArray)
+      const jsonFilteringLanguage =
+        arrayfilters === undefined ? jsondata : jsondata.filter(insideArray)
       mountPage(jsonFilteringLanguage)
     })
+    .catch(error => console.log(error))
 }
-
-/*----Arrays----*/
-let languages = []
-let filtersSelected = []
-// let typeContracts = []
-// let locations = []
 
 function mountPage(jsonData) {
   const pageMain = document.querySelector('main')
@@ -280,5 +273,5 @@ const checkRepeatedItem = (element, array) => array.some(e => e === element)
 
 /*--- Initialize page ---*/
 window.onload = () => {
-  fetchJsonInicilize()
+  fetchJsonFiltering()
 }
