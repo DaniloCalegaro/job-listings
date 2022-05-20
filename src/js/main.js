@@ -1,43 +1,34 @@
-//console.log('-------')
-
-/*----Received Json----*/
 const pathJson = './src/json/data.json'
 
-function fetchJson() {
+/*--- Fetch Json and Filter ---*/
+function fetchJsonFiltering(arrayfilters) {
   fetch(pathJson)
     .then(response => {
       return response.json()
     })
     .then(jsondata => {
-      searchFiltersAvailable(jsondata)
-      mountPage(jsondata)
-    })
-}
+      if (languages.length <= 0) {
+        searchFiltersAvailable(jsondata)
+      }
+      console.log(languages.length)
 
-/*--- Fetch Filtering ---*/
-function fetchJsonFiltering(filter) {
-  fetch(pathJson)
-    .then(response => {
-      return response.json()
-    })
-    .then(jsondata => {
-      searchFiltersAvailable(jsondata)
+      function insideArray(value) {
+        const searchItens = value.languages.find(language =>
+          arrayfilters.find(filter => language === filter)
+        )
+        return searchItens != undefined
+      }
 
-      // Funcionando
-      const jsonFilteringLanguage = jsondata.filter(element =>
-        element.languages.includes(filter)
-      )
-
-      console.log(jsonFilteringLanguage)
+      const jsonFilteringLanguage = jsondata.filter(insideArray)
 
       if (jsonFilteringLanguage.length != 0) {
-        //console.log(jsonFilteringLanguage)
+        mountPage(jsonFilteringLanguage)
+      } else {
+        mountPage(jsondata)
       }
       //console.log(jsondata[1].contract)
     })
 }
-fetchJsonFiltering('HTML')
-//fetchJsonFiltering('USA Only')
 
 /*----Arrays----*/
 let languages = []
@@ -45,10 +36,16 @@ let filtersSelected = []
 // let typeContracts = []
 // let locations = []
 
-const pageMain = document.querySelector('main')
-
 function mountPage(jsonData) {
-  /*----Insert Dynamic---- */
+  const pageMain = document.querySelector('main')
+  const listDinamicModalFilters = document.querySelector(
+    '#dinamic-modal-filters'
+  )
+  /*---Reset Page---*/
+  pageMain.innerHTML = ''
+  listDinamicModalFilters.innerHTML = ''
+
+  /*---Insert Dynamic---*/
   jsonData.forEach(element => {
     divContainer = newElement('container', 'container', 'section')
 
@@ -170,10 +167,6 @@ function mountPage(jsonData) {
   })
 
   /*----Filters Modal Dinamics---- */
-  const listDinamicModalFilters = document.querySelector(
-    '#dinamic-modal-filters'
-  )
-
   languages.forEach(element => {
     const rowLanguage = newElement('rowLanguage', '', 'li')
     rowLanguage.textContent = element
@@ -238,9 +231,9 @@ listDinamicModalFilters.addEventListener('click', e => {
     listButtonsFiltersSelected.appendChild(rowFilterSelected)
 
     // Filter Json and reload info
-    //fetchJsonFiltering(filtersSelected)
+    fetchJsonFiltering(filtersSelected)
   }
-  console.log(filtersSelected)
+  //console.log(filtersSelected)
 })
 
 /*--- Remove Button List Dinamic Filters Header ---*/
@@ -251,7 +244,8 @@ listbuttonFilterHeader.addEventListener('click', e => {
   if (filterButton != null) {
     filtersSelected.splice(valueButtonFilter, 1)
     document.getElementById(e.target.id).remove()
-    console.log(filtersSelected)
+    //console.log(filtersSelected)
+    fetchJsonFiltering(filtersSelected)
   }
 })
 
@@ -278,5 +272,5 @@ const checkRepeatedItem = (element, array) => array.some(e => e === element)
 
 /*--- Initialize page ---*/
 window.onload = () => {
-  fetchJson()
+  fetchJsonFiltering([undefined])
 }
