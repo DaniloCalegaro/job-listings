@@ -1,94 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Icon Page -->
-    <link rel="icon" type="image/png" sizes="32x32" href="./src/img/book.svg" />
+      <!-- Icon Page -->
+      <link
+         rel="icon"
+         type="image/png"
+         sizes="32x32"
+         href="./src/img/book.svg"
+      />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
+      <!-- Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+         href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap"
+         rel="stylesheet"
+      />
 
-    <!-- Links Styles -->
-    <link rel="stylesheet" href="./src/styles/rules/resets/resets.css" />
-    <link rel="stylesheet" href="./src/styles/rules/colors/colors.css" />
-    <link rel="stylesheet" href="./src/styles/rules/body/body.css" />
-    <link rel="stylesheet" href="./src/styles/rules/buttons/button.css" />
-    <link rel="stylesheet" href="./src/styles/header/header.css" />
-    <link rel="stylesheet" href="./src/styles/container/container.css" />
+      <!-- Links Styles -->
+      <link rel="stylesheet" href="./src/styles/rules/resets/resets.css" />
+      <link rel="stylesheet" href="./src/styles/rules/colors/colors.css" />
+      <link rel="stylesheet" href="./src/styles/body/body.css" />
+      <link rel="stylesheet" href="./src/styles/rules/buttons/button.css" />
+      <link rel="stylesheet" href="./src/styles/header/header.css" />
+      <link rel="stylesheet" href="./src/styles/container/container.css" />
 
-    <title>Job Listings</title>
-  </head>
-  <body>
-    <header>
-      <nav class="container-nav">
-        <p><span id="cont-result">0</span> results</p>
-        <ul id="buttons-filters" class="list-filters-selected">
-          <!-- <li><a class="button-header-filter" href="#">CSS</a></li> -->
-        </ul>
-        <ul id="filters-view">
-          <li><img src="/src/img/th-menu.svg" alt="filters menu" /></li>
-          <li>Filters</li>
-        </ul>
+      <title>Job Listings</title>
+   </head>
+   <body>
+      <header>
+         <nav class="container-nav">
+            <p><span id="cont-result">0</span> results</p>
+            <ul id="buttons-filters" class="list-filters-selected"></ul>
+            <ul id="filters-view">
+               <li><img src="/src/img/th-menu.svg" alt="filters menu" /></li>
+               <li>Filters</li>
+            </ul>
 
-        <div id="modal-filters" class="modal-filters">
-          <i id="close-modal"><img src="/src/img/close.svg" alt="fechar" /></i>
-          <ul id="dinamic-modal-filters">
-            <!-- <li><a href="#">Full Time</a></li>
-            <li class="list-break"><a href="#"></a></li>
-            <li><a href="#">Full Time</a></li>
-            <li><a href="#">Full Time</a></li> -->
-          </ul>
-        </div>
-      </nav>
-    </header>
-
-    <main>
-      <!-- <div class="container">
-        <div class="company">
-          <div class="image-company">
-            <img src="./src/img/photosnap.svg" alt="" />
-          </div>
-
-          <div class="details-company">
-            <div class="company-name-feature">
-              <ul>
-                <li><p>Photosnap</p></li>
-                <li><p class="button-new">New!</p></li>
-                <li><p class="button-featured">Featured</p></li>
-              </ul>
+            <div id="modal-filters" class="modal-filters">
+               <i id="close-modal"
+                  ><img src="/src/img/close.svg" alt="fechar"
+               /></i>
+               <ul id="dinamic-modal-filters"></ul>
             </div>
-            <div class="job">
-              <p>Senior Frontend Developer</p>
-            </div>
-            <div class="details-job">
-              <ul>
-                <li><p>1d ago</p></li>
-                <li><p>Full Time</p></li>
-                <li><p>USA only</p></li>
-              </ul>
-            </div>
-          </div>
-        </div>
+         </nav>
+      </header>
 
-        <div class="filters">
-          <ul>
-            <li><a class="button-filters" href="#">Frontend</a></li>
-            <li><a class="button-filters" href="#">Senior</a></li>
-            <li><a class="button-filters" href="#">HTML</a></li>
-            <li><a class="button-filters" href="#">CSS</a></li>
-            <li><a class="button-filters" href="#">JavaScript</a></li>
-          </ul>
-        </div>
-      </div> -->
-    </main>
+      <main></main>
 
-    <script src="/src/js/main.js"></script>
-  </body>
+      <script src="/src/js/main.js"></script>
+   </body>
 </html>

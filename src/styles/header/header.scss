@@ -1,14 +1,10 @@
 header {
   background: var(--veryDarkGrayishCyan);
-
   background-image: url(/src/img/bg-header-desktop.svg);
-
   padding: 0 4rem;
-
   display: flex;
   align-items: flex-end;
   justify-content: center;
-
   position: relative;
 
   .container-nav {
