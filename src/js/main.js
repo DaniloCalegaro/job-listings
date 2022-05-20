@@ -22,36 +22,28 @@ function fetchJsonFiltering(filter) {
     })
     .then(jsondata => {
       searchFiltersAvailable(jsondata)
-      const jsonFilteringConstract = jsondata.filter(
-        element => element.contract === filter
-      )
-      const jsonFilteringLocation = jsondata.filter(
-        element => element.location === filter
-      )
-      const jsonFilteringLanguage = jsondata.filter(
-        element => element.languages === filter
+
+      // Funcionando
+      const jsonFilteringLanguage = jsondata.filter(element =>
+        element.languages.includes(filter)
       )
 
-      if (jsonFilteringConstract.length != 0)
-        console.log(jsonFilteringConstract)
-      if (jsonFilteringLocation.length != 0) console.log(jsonFilteringLocation)
-      if (jsonFilteringLanguage.length != 0) console.log(jsonFilteringLanguage)
+      console.log(jsonFilteringLanguage)
 
-      // jsonFiltering.forEach(element => {
-      //   if (checkRepeatedItem(element, itensFiltersSelected))
-      //     itensFiltersSelected.push(element.id)
-      // })
+      if (jsonFilteringLanguage.length != 0) {
+        //console.log(jsonFilteringLanguage)
+      }
       //console.log(jsondata[1].contract)
     })
 }
-//fetchJsonFiltering('Full Time')
+fetchJsonFiltering('HTML')
 //fetchJsonFiltering('USA Only')
 
 /*----Arrays----*/
-let typeContracts = []
-let locations = []
 let languages = []
 let filtersSelected = []
+// let typeContracts = []
+// let locations = []
 
 const pageMain = document.querySelector('main')
 
@@ -182,6 +174,14 @@ function mountPage(jsonData) {
     '#dinamic-modal-filters'
   )
 
+  languages.forEach(element => {
+    const rowLanguage = newElement('rowLanguage', '', 'li')
+    rowLanguage.textContent = element
+    listDinamicModalFilters.appendChild(rowLanguage)
+  })
+
+  /*--- Add more filters
+
   typeContracts.forEach(e => {
     const rowTypeContract = newElement('rowTypeContract', '', 'li')
     rowTypeContract.textContent = e
@@ -200,11 +200,7 @@ function mountPage(jsonData) {
   const rowDivider2 = newElement('rowDivider', 'list-break', 'li')
   listDinamicModalFilters.appendChild(rowDivider2)
 
-  languages.forEach(element => {
-    const rowLanguage = newElement('rowLanguage', '', 'li')
-    rowLanguage.textContent = element
-    listDinamicModalFilters.appendChild(rowLanguage)
-  })
+  */
 }
 
 /*---- EventListeners Modal---- */
@@ -240,6 +236,9 @@ listDinamicModalFilters.addEventListener('click', e => {
     rowFilterSelected.id = e.target.firstChild.textContent
     rowFilterSelected.appendChild(filterSelected)
     listButtonsFiltersSelected.appendChild(rowFilterSelected)
+
+    // Filter Json and reload info
+    //fetchJsonFiltering(filtersSelected)
   }
   console.log(filtersSelected)
 })
@@ -269,11 +268,6 @@ function newElement(name, className, type) {
 function searchFiltersAvailable(array) {
   array.forEach(element => {
     // Add contracts and locations array filters
-    if (!checkRepeatedItem(element.contract, typeContracts))
-      typeContracts.push(element.contract)
-    if (!checkRepeatedItem(element.location, locations))
-      locations.push(element.location)
-
     element.languages.forEach(language => {
       if (!checkRepeatedItem(language, languages)) languages.push(language)
     })
