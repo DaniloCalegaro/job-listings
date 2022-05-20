@@ -1,5 +1,16 @@
 const pathJson = './src/json/data.json'
 
+function fetchJsonInicilize() {
+  fetch(pathJson)
+    .then(response => {
+      return response.json()
+    })
+    .then(jsondata => {
+      searchFiltersAvailable(jsondata)
+      mountPage(jsondata)
+    })
+}
+
 /*--- Fetch Json and Filter ---*/
 function fetchJsonFiltering(arrayfilters) {
   fetch(pathJson)
@@ -7,26 +18,14 @@ function fetchJsonFiltering(arrayfilters) {
       return response.json()
     })
     .then(jsondata => {
-      if (languages.length <= 0) {
-        searchFiltersAvailable(jsondata)
-      }
-      console.log(languages.length)
-
       function insideArray(value) {
-        const searchItens = value.languages.find(language =>
-          arrayfilters.find(filter => language === filter)
+        const searchItens = arrayfilters.every(filter =>
+          value.languages.find(language => language === filter)
         )
-        return searchItens != undefined
+        return searchItens
       }
-
       const jsonFilteringLanguage = jsondata.filter(insideArray)
-
-      if (jsonFilteringLanguage.length != 0) {
-        mountPage(jsonFilteringLanguage)
-      } else {
-        mountPage(jsondata)
-      }
-      //console.log(jsondata[1].contract)
+      mountPage(jsonFilteringLanguage)
     })
 }
 
@@ -233,7 +232,6 @@ listDinamicModalFilters.addEventListener('click', e => {
     // Filter Json and reload info
     fetchJsonFiltering(filtersSelected)
   }
-  //console.log(filtersSelected)
 })
 
 /*--- Remove Button List Dinamic Filters Header ---*/
@@ -242,9 +240,8 @@ listbuttonFilterHeader.addEventListener('click', e => {
   const filterButton = document.getElementById(e.target.id)
   const valueButtonFilter = e.target.textContent
   if (filterButton != null) {
-    filtersSelected.splice(valueButtonFilter, 1)
+    filtersSelected = filtersSelected.filter(item => item != valueButtonFilter)
     document.getElementById(e.target.id).remove()
-    //console.log(filtersSelected)
     fetchJsonFiltering(filtersSelected)
   }
 })
@@ -272,5 +269,5 @@ const checkRepeatedItem = (element, array) => array.some(e => e === element)
 
 /*--- Initialize page ---*/
 window.onload = () => {
-  fetchJsonFiltering([undefined])
+  fetchJsonInicilize()
 }
