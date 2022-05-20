@@ -20,7 +20,7 @@ function fetchJsonFiltering(arrayfilters) {
     .then(jsondata => {
       function insideArray(value) {
         const searchItens = arrayfilters.every(filter =>
-          value.languages.find(language => language === filter)
+          value.languages.some(language => language === filter)
         )
         return searchItens
       }
