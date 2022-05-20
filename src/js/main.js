@@ -45,6 +45,20 @@ function mountPage(jsonData) {
   listDinamicModalFilters.innerHTML = ''
 
   /*---Insert Dynamic---*/
+
+  //Results Json
+  const spanResult = document.querySelector('#cont-result')
+  spanResult.textContent = jsonData.length
+
+  if (jsonData.length === 0) {
+    divNoResults = newElement('divNoResults', 'job', 'div')
+    textNoResult = newElement('textNoResult', '', 'p')
+    textNoResult.textContent = 'Search Not Found'
+    divNoResults.appendChild(textNoResult)
+    pageMain.appendChild(divNoResults)
+    //console.log('sem resultado')
+  }
+
   jsonData.forEach(element => {
     divContainer = newElement('container', 'container', 'section')
 
@@ -125,10 +139,6 @@ function mountPage(jsonData) {
 
     divCompany.appendChild(divDetailsCompany)
     //------
-
-    //Results Json
-    const spanResult = document.querySelector('#cont-result')
-    spanResult.textContent = jsonData.length
 
     //Filters
 
