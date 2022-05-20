@@ -4,7 +4,7 @@
 ![GitHub language count](https://img.shields.io/github/languages/count/DaniloCalegaro/job-listings)
 
 <h4> 
-	🚧  Página com a função de buscar informações contidas no JSON e mostrar ao usuário  🚧
+	🚧  Página desktop/mobile criada para praticar os estudos, principalmente o Javascript juntamento com manipulação da DOM com elementos Json.  🚧
   <br>
   <br>
 
