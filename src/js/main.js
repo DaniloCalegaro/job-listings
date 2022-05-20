@@ -54,6 +54,7 @@ function mountPage(jsonData) {
     divNoResults = newElement('divNoResults', 'job', 'div')
     textNoResult = newElement('textNoResult', '', 'p')
     textNoResult.textContent = 'Search Not Found'
+    textNoResult.style.marginTop = '2rem'
     divNoResults.appendChild(textNoResult)
     pageMain.appendChild(divNoResults)
     //console.log('sem resultado')
