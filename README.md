@@ -10,9 +10,6 @@ Esta página é alimentada por um arquivo JSON onde é exibida uma lista dinâmi
 
 Tudo isto é manipulado pelo usuário de maneira prática e intuitiva.
 
-<br>
-
-
 # Tabela de conteúdos
 
 - [Job Listings](#job-listings)
