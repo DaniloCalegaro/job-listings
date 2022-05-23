@@ -43,7 +43,7 @@ Nesta foi fixado vários conhecimentos:
 
 ### Links
 
-- URL da Solução : [Job-Listings](https://job-listings-5glnz363d-danilocalegaro.vercel.app/)
+- URL da Solução : [Job-Listings](https://job-listings-danilocalegaro.vercel.app/)
 
 ## Meu Processo
 
