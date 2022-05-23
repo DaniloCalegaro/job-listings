@@ -78,21 +78,26 @@ function mountPage(jsonData) {
       rowCompany = newElement('rowCompany', '', 'li')
       companyName = newElement('companyName', '', 'p')
       companyName.textContent = element.company
-      rowNew = newElement('rowNew', '', 'li')
-      companyNew = newElement('companyNew', 'button-new', 'p')
-      companyNew.textContent = element.new
-      rowFeatured = newElement('rowFeatured', '', 'li')
-      companyFeatured = newElement('companyFeatured', 'button-featured', 'p')
-      companyFeatured.textContent = element.featured
-
       rowCompany.appendChild(companyName)
       listCompanyNameFeature.appendChild(rowCompany)
 
-      rowNew.appendChild(companyNew)
-      listCompanyNameFeature.appendChild(rowNew)
+      if (element.new) {
+         rowNew = newElement('rowNew', '', 'li')
+         companyNew = newElement('companyNew', 'button-new', 'p')
+         companyNew.textContent = 'New!'
 
-      rowFeatured.appendChild(companyFeatured)
-      listCompanyNameFeature.appendChild(rowFeatured)
+         rowNew.appendChild(companyNew)
+         listCompanyNameFeature.appendChild(rowNew)
+      }
+
+      if (element.featured) {
+         rowFeatured = newElement('rowFeatured', '', 'li')
+         companyFeatured = newElement('companyFeatured', 'button-featured', 'p')
+         companyFeatured.textContent = 'Featured'
+
+         rowFeatured.appendChild(companyFeatured)
+         listCompanyNameFeature.appendChild(rowFeatured)
+      }
 
       divCompanyNameFeature.appendChild(listCompanyNameFeature)
 
